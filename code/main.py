@@ -8,7 +8,7 @@ class Game:
 		# setup
 		pygame.init()
 		self.display_surface = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
-		pygame.display.set_caption('Flappy Bird')
+		pygame.display.set_caption('Swimmy Shark')
 		self.clock = pygame.time.Clock()
 		self.active = True
 
@@ -17,11 +17,11 @@ class Game:
 		self.collision_sprites = pygame.sprite.Group()
 
 		# scale factor
-		bg_height = pygame.image.load('../graphics/environment/background.png').get_height()
+		bg_height = pygame.image.load('graphics/environment/background.png').get_height()
 		self.scale_factor = WINDOW_HEIGHT / bg_height
 
 		# sprite setup 
-		BG(self.all_sprites,self.scale_factor)
+		BG(self.all_sprites, self.scale_factor)
 		Ground([self.all_sprites,self.collision_sprites],self.scale_factor)
 		self.plane = Plane(self.all_sprites,self.scale_factor / 1.7)
 
@@ -30,16 +30,16 @@ class Game:
 		pygame.time.set_timer(self.obstacle_timer,1400)
 
 		# text
-		self.font = pygame.font.Font('../graphics/font/BD_Cartoon_Shout.ttf',30)
+		self.font = pygame.font.Font('graphics/font/BD_Cartoon_Shout.ttf',30)
 		self.score = 0
 		self.start_offset = 0
 
 		# menu
-		self.menu_surf = pygame.image.load('../graphics/ui/menu.png').convert_alpha()
+		self.menu_surf = pygame.image.load('graphics/ui/play.png').convert_alpha()
 		self.menu_rect = self.menu_surf.get_rect(center = (WINDOW_WIDTH / 2,WINDOW_HEIGHT / 2))
 
 		# music 
-		self.music = pygame.mixer.Sound('../sounds/music.wav')
+		self.music = pygame.mixer.Sound('sounds/music.wav')
 		self.music.play(loops = -1)
 
 	def collisions(self):
@@ -100,6 +100,9 @@ class Game:
 			pygame.display.update()
 			# self.clock.tick(FRAMERATE)
 
-if __name__ == '__main__':
-	game = Game()
-	game.run()
+
+
+while True: 
+	if __name__ == '__main__':
+		game = Game()
+		game.run()
