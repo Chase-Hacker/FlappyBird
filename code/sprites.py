@@ -47,9 +47,14 @@ class Ground(pygame.sprite.Sprite):
 
 		self.rect.x = round(self.pos.x)
 
-class Power(pygame.sprite.Sprite):
+"""class powerup(pygame.sprite.Sprite):
 	def __init__(self,groups,scale_factor):
 		super().__init__(groups)
+
+		# image 
+		self.import_frames(scale_factor)
+		self.frame_index = 0
+		self.image = self.frames[self.frame_index] """
 
 class Plane(pygame.sprite.Sprite):
 	def __init__(self,groups,scale_factor):
