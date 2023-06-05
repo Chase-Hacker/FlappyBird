@@ -1,6 +1,6 @@
 import pygame, sys, time
 from settings import *
-from sprites import BG, Ground, Plane, Obstacle
+from sprites import BG, Ground, Plane, Obstacle, Power
 
 class Game:
 	def __init__(self):
@@ -15,6 +15,7 @@ class Game:
 		# sprite groups
 		self.all_sprites = pygame.sprite.Group()
 		self.collision_sprites = pygame.sprite.Group()
+		self.powerup_sprites = pygame.sprite.Group()
 
 		# scale factor
 		bg_height = pygame.image.load('graphics/environment/background.png').get_height()
@@ -23,6 +24,7 @@ class Game:
 		# sprite setup 
 		BG(self.all_sprites, self.scale_factor)
 		Ground([self.all_sprites,self.collision_sprites],self.scale_factor)
+		Power(self.powerup_sprites, self.scale_factor)
 		self.plane = Plane(self.all_sprites,self.scale_factor / 1.7)
 
 		# timer
@@ -99,7 +101,6 @@ class Game:
 
 			pygame.display.update()
 			# self.clock.tick(FRAMERATE)
-
 
 
 while True: 
